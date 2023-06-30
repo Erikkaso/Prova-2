@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class PainelOpcoes  extends JPanel{ 
@@ -44,8 +45,9 @@ public class PainelOpcoes  extends JPanel{
 			this.janelaJogo = janelaJogo;
 		}
 		
-		public void actionPerformed(ActionEvent e) {
-			this.janelaJogo.setVisible(false);
+		public void actionPerformed(ActionEvent e) {	
+			if(JOptionPane.showConfirmDialog(null, "Voce tem certeza que quer sair?", "FECHAR JOGO", JOptionPane.YES_NO_OPTION) == 0)
+			System.exit(0);
 		}
 	}
 }

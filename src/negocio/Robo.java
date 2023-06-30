@@ -44,27 +44,9 @@ public abstract class Robo {
 //		}
 //	}
 
-//	public void movimentar(int id, char imagem, int x, int y) {
-//		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-//			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == id) {
-//				plano.listaCelulas.get(i).robo = null;
-//				plano.listaCelulas.get(i).imagem = '°';
-//			}
-//
-//			if (plano.listaCelulas.get(i).posicaoX == x && plano.listaCelulas.get(i).posicaoY == y) {
-//				posicaox = plano.listaCelulas.get(i).posicaoX;
-//				posicaoy = plano.listaCelulas.get(i).posicaoY;
-//				posx.add(posicaox);
-//				posy.add(posicaoy);
-//
-//				plano.listaCelulas.get(i).robo = this;
-//				plano.listaCelulas.get(i).imagem = imagem;
-//
-//				verificarAlunoeBug(plano.listaCelulas.get(i), posicaox, posicaoy);
-//
-//			}
-//		}
-//	}
+	public void movimentar(int id, char imagem, int x, int y) {
+	
+	}
 //
 //	public void verificarAlunoeBug(Celula aux, int x, int y) {
 //		if (aux.aluno != null && aux.aluno.posicaox == x && aux.aluno.posicaoy == y) {
