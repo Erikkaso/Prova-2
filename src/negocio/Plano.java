@@ -8,7 +8,7 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.text.StyledEditorKit.ForegroundAction;
+
 
 public class Plano {
 	public ArrayList<Celula> listaCelulas;
@@ -58,15 +58,14 @@ public class Plano {
 			}
 			
 			listaCelulas.get(indice).robo = robo;
-			listaCelulas.get(indice).botaoCelula.setIcon( resizeImage(robo));
+			listaCelulas.get(indice).botaoCelula.setIcon(resizeImage(robo));
 		}
 	}
 
 	public void celulaRecebeRobo(Robo aux) {
 		aux.icone = resizeImage(aux);
 		for (int i = 0; i < listaCelulas.size(); i++) {
-			listaCelulas.get(i).robo = aux;
-			// System.out.println(aux +" " + i);
+			listaCelulas.get(i).marcarArea(aux);
 		}
 	}
 
@@ -80,3 +79,4 @@ public class Plano {
 		return iconScaled;
 	}
 }
+

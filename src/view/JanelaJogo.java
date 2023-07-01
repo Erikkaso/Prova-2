@@ -60,7 +60,6 @@ public class JanelaJogo extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == opcoesBox) {
-			
 			for (Robo robo : painelJogo.plano.listaRobo) {
 				if (opcoesBox.getSelectedItem() == robo.icone)
 					painelJogo.plano.celulaRecebeRobo(robo);

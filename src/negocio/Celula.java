@@ -15,6 +15,8 @@ public class Celula implements ActionListener {
 	public JButton botaoCelula;
 	public Plano plano;
 	public Robo robo;
+	public Robo auxiliar;
+	public boolean target;
 //	public Aluno aluno;
 //	public Bug bug;
 
@@ -26,6 +28,7 @@ public class Celula implements ActionListener {
 		this.robo = robo;
 		this.plano = p;
 
+		target = false;
 		botaoCelula.addActionListener(this);
 	}
 
@@ -34,19 +37,36 @@ public class Celula implements ActionListener {
 
 		if (e.getSource() == this.botaoCelula) {
 			try {
-				// botaoCelula.setIcon(this.robo.icone);
-				if (this.robo == plano.listaRobo.get(1)) {
-					for (Celula celula : plano.listaCelulas) {
-						if (((celula.posicaoY == (this.posicaoY - 1) || celula.posicaoY == (this.posicaoY - 2))
-								|| (celula.posicaoY == (this.posicaoY + 1) || celula.posicaoY == (this.posicaoY + 2)))
-										&& celula.posicaoX == this.posicaoX) {
-							celula.botaoCelula.setBackground(Color.red);
-						}
-					}
+				if(this.target == true) {
+					this.robo = auxiliar;
+					this.botaoCelula.setIcon(robo.icone);
+					this.target = false;
 				}
 			} catch (Exception NullPointerException) {
 				System.out.println("robo vazio");
 			}
 		}
+	}
+
+	public void marcarArea(Robo aux) {
+		if(aux == plano.listaRobo.get(1) && aux == this.robo) {
+			for (Celula celula : plano.listaCelulas) {
+				if (((celula.posicaoY == (this.posicaoY - 1) || celula.posicaoY == (this.posicaoY - 2))
+						|| (celula.posicaoY == (this.posicaoY + 1) || celula.posicaoY == (this.posicaoY + 2)))
+						&& celula.posicaoX == this.posicaoX) {
+					celula.target = true;
+					celula.botaoCelula.setBackground(Color.red);
+				}
+			}
+		}
+		if (aux == plano.listaRobo.get(0) && aux == this.robo) {
+			for (Celula celula : plano.listaCelulas) {
+				if (celula.posicaoX == this.posicaoX && celula.posicaoY != this.posicaoY) {
+					celula.target = true;
+					celula.botaoCelula.setBackground(Color.red);
+				}
+			}
+		}
+		this.auxiliar = aux;
 	}
 }
